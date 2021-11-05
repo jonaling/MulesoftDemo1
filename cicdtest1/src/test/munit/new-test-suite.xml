@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
+	<munit:config name="new-test-suite.xml" />
+	<munit:test name="new-test-suite-get:\objects:basicAPItest1-configTest" doc:id="ca607cae-ac59-47f2-845b-79da2a6c1069" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\objects:basicAPItest1-config" doc:id="6a5348f5-e730-4ff2-91e0-98b92b0a691c" name="get:\objects:basicAPItest1-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-equals doc:name="Assert equals" doc:id="3549c82f-751a-45b2-8843-fd1373f94ef2" actual="#[payload]" expected='#[{"message":"Here is the fruit."}]'/>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="new-test-suite-post:\objects:application\json:basicAPItest1-configTest" doc:id="fd6888bd-44b8-4789-b256-a7b5559962b9" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to post:\objects:application\json:basicAPItest1-config" doc:id="6e2899fc-5456-43db-aef9-06230e960a8a" name="post:\objects:application\json:basicAPItest1-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-equals doc:name="Assert equals" doc:id="e162189b-c0be-41fd-8304-5c3e215c02dc" actual="#[payload]" expected='#[{message: "object submitted."}]' />
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

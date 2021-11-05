@@ -1,0 +1,30 @@
+#%RAML 1.0 
+title: BasicAPITest1
+
+/objects:
+  get:
+    displayName: Get Objects
+    queryParameters:
+      code:
+        displayName: Object obtained.
+        required: false
+        
+    responses:
+      200:
+        body:
+          application/json:
+
+            example: Here is the fruit.
+            
+            
+  post:
+    body:
+      application/json:
+        type: string
+        example: Hello
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              message: object submitted.
